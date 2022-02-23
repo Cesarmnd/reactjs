@@ -1,0 +1,33 @@
+.header {
+  background-color: #00b16a;
+  width: 100%;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  margin: 0;
+  display: block;
+}
+
+.header__img {
+  display: block;
+  width: 100px;
+}
+
+.header__ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.header__link {
+  text-decoration: none;
+  color: #fafafa;
+  font-weight: bolder;
+}
+
