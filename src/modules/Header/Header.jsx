@@ -1,13 +1,14 @@
 import './header.css'
-import imgLogo from '../images/logo.png'
+import imgLogo from '../../images/logo.png'
 import React from 'react'
+import CartWidget from '../CartWidget/CartWidget'
 
 const Header = () => {
+ 
 
   return (
     <header className='header'> 
-      <nav 
-    className='header__nav'>
+      <nav className='header__nav'>
         <a className='header__logo'>
           <img className='header__img' src={imgLogo} alt="logo" title="logo"/>
         </a>
@@ -31,6 +32,7 @@ const Header = () => {
             <a className='header__link' href="#">Speakers</a>
           </li>
         </ul>
+        <CartWidget />
       </nav>
     </header>
   )

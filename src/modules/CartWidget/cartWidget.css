@@ -1,0 +1,25 @@
+.cart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 13%;
+  margin: 0 10px;
+  border-radius: 20px;
+}
+
+.cart-container:hover {
+  background-color: #04633d;
+  cursor: pointer;
+}
+
+.cart {
+  width: 35px;
+  height: 35px;
+  margin-right: 5px;
+}
+
+.cart-name {
+  color: #fafafa;
+  font-weight: bolder;
+  margin: 8px 0;
+}

@@ -1,9 +1,16 @@
 import './App.css';
-import Header from './modules/header';
+import Header from './modules/Header/Header';
+import ItemListContainer from './modules/ItemListContainer/ItemListContainer';
 
 function App() {
+
+
   return (
-    <Header />
+    <div>
+      <Header /> 
+      <ItemListContainer greeting="Hi! Thanks for visiting my page. You're amazing!"/>  
+    </div>
+    
   );
 }
 
