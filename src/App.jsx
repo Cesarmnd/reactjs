@@ -1,6 +1,6 @@
 import './App.css';
-import Header from './modules/Header/Header';
-import ItemListContainer from './modules/ItemListContainer/ItemListContainer';
+import Header from './components/Header/Header';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 function App() {
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <Header /> 
-      <ItemListContainer greeting="Hi! Thanks for visiting my page. You're amazing!"/>  
+      <ItemListContainer greeting="Hi! Thanks for visiting my page. You're amazing!"/>   
     </div>
     
   );
