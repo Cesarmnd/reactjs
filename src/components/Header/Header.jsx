@@ -1,7 +1,7 @@
 import './header.css'
 import imgLogo from '../../images/logo.png'
 import React from 'react'
-import CartWidget from '../CartWidget/CartWidget'
+import CartWidget from './CartWidget/CartWidget'
 
 const Header = () => {
  
