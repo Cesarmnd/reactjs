@@ -12,6 +12,10 @@
   animation-iteration-count: infinite;
 }
 
+.loading {
+  text-align: center;
+}
+
 
 @keyframes animation {
   0% {

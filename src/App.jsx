@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <Header /> 
-      <ItemListContainer greeting="Hi! Thanks for visiting my page. You're amazing!"/>   
+      <ItemListContainer />   
     </div>
     
   );
