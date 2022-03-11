@@ -3,7 +3,8 @@ export const items = [
     "id": 0,
     "name": "Hard Disk 01",
     "price": 175,
-    "img": "https://us.123rf.com/450wm/davidfranklinstudioworks/davidfranklinstudioworks1601/davidfranklinstudioworks160100051/50816962-open-plain-brown-blank-cardboard-box-isolated-on-white-background-copy-space.jpg?ver=6"
+    "img": "https://us.123rf.com/450wm/davidfranklinstudioworks/davidfranklinstudioworks1601/davidfranklinstudioworks160100051/50816962-open-plain-brown-blank-cardboard-box-isolated-on-white-background-copy-space.jpg?ver=6",
+    "description": "Hey! This is a simple box used just as a reference of an item that will be placed here soon!"
   },
   {
     "id": 1,

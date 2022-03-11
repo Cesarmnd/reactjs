@@ -1,0 +1,29 @@
+.cardDetail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  margin: 50px auto;
+  border: 2px solid #000;
+  border-radius: 20px;
+  box-shadow: 1px 1px 10px black;
+}
+
+.imgDetail { 
+  width: 300px;
+}
+
+.bodyDetail {
+  padding: 20px;
+  width: 40%;
+  text-align: center;
+}
+
+.nameDetail {
+  font-size: 26px;
+  margin: 0;
+}
+
+.descriptionDetail { 
+  text-align: justify;
+}

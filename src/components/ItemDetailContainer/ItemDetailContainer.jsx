@@ -1,19 +1,16 @@
-import './ItemListContainer.css';
 import React from 'react'
 import { getFetch } from '../../helpers/getFetch';
 import { useState, useEffect } from 'react';
-import ItemList from '../ItemList/ItemList';
+import ItemDetail from '../ItemDetail/ItemDetail';
 
-
-
-const ItemListContainer = () => {
-  const [prods, setProds] = useState([])
+const ItemDetailContainer = () => {
+  const [item, setItem] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(()=>{
 
     setTimeout(() => getFetch 
-    .then((data)=> setProds(data), 
+    .then((data)=> setItem(data.find((prod)=> prod.id === 0)), 
                     (err)=>console.log(err))
   
     .catch(err =>console.log(err))
@@ -29,11 +26,11 @@ const ItemListContainer = () => {
         {
         loading ? <h1 className='loading'>Loading...</h1>
         :
-        <ItemList items={prods}/>
+        <ItemDetail {...item}/>
         }
       </div>
 
     </div>
 )}
 
-export default ItemListContainer
+export default ItemDetailContainer
