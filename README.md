@@ -4,4 +4,5 @@ Este proyecto fue pensado para ser una página e-commerce de una tienda de artí
 
 
 # Funcionabilidad
-###()
+
+![image](https://github.com/Cesarmnd/reactjs/blob/main/src/media/Animation.gif)
