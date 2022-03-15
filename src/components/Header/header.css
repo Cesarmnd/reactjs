@@ -9,7 +9,7 @@
 }
 
 .header__logo {
-  margin: 0;
+  margin: 0 5px;
   display: block;
 }
 
@@ -31,3 +31,12 @@
   font-weight: bolder;
 }
 
+.header__link:hover {
+  color: #006400;
+}
+
+.header__link-cart {
+  width: 13%;
+  text-align: center;
+  text-decoration: none;
+}

@@ -1,24 +1,23 @@
 import React from 'react'
 import { getFetch } from '../../helpers/getFetch';
 import { useState, useEffect } from 'react';
-import ItemDetail from '../ItemDetail/ItemDetail';
+import ItemDetail from '../../components/ItemDetail/ItemDetail';
+import { useParams } from 'react-router-dom'
 
 const ItemDetailContainer = () => {
+  const { detailId } = useParams ()
   const [item, setItem] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(()=>{
-
     setTimeout(() => getFetch 
-    .then((data)=> setItem(data.find((prod)=> prod.id === 0)), 
-                    (err)=>console.log(err))
+    .then((data)=> setItem(data.find((prod)=> prod.id === detailId)), 
+                    (err) => console.log(err))
   
-    .catch(err =>console.log(err))
-    .finally(()=> setLoading(false)),2000)
+    .catch(err => console.log(err))
+    .finally(()=> setLoading(false)),500)
     
   },[])
-
-
 
   return (
     <div>

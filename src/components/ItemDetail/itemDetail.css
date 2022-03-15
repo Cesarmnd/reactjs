@@ -2,8 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 45%;
+  width: 75%;
   margin: 50px auto;
+  padding: 25px;
   border: 2px solid #000;
   border-radius: 20px;
   box-shadow: 1px 1px 10px black;
@@ -15,7 +16,7 @@
 
 .bodyDetail {
   padding: 20px;
-  width: 40%;
+  width: 60%;
   text-align: center;
 }
 
@@ -24,6 +25,18 @@
   margin: 0;
 }
 
+.btns-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.priceDetail {
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 0 35px;
+}
+
 .descriptionDetail { 
-  text-align: justify;
+  text-align: left;
 }

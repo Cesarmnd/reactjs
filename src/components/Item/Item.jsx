@@ -1,5 +1,6 @@
 import './item.css'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Item({id, img, name, price}) {
   return (
@@ -8,10 +9,11 @@ function Item({id, img, name, price}) {
                             <div className="body">
                               <h5 className="name">{name}</h5>
                               <p className="price">${price}</p>
-                              <a href="#" className="btn btn-primary">Description</a>
+                              <Link className='btn' to={`detail/${id}`}>
+                                Description
+                              </Link>
                             </div>
-      </div>
-
+    </div>
   )
 }
 

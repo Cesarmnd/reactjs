@@ -34,13 +34,12 @@
 .btn {
   text-decoration: none;
   padding: 10px;
-  background-color: green;
+  background-color: #008000;
   color: white;
   border-radius: 10px;
 }
 
 .btn:hover {
   cursor: pointer;
-  background-color: darkgreen;
-
+  background-color: #006400;
 }
