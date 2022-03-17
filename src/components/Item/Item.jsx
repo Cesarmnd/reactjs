@@ -9,7 +9,7 @@ function Item({id, img, name, price}) {
                             <div className="body">
                               <h5 className="name">{name}</h5>
                               <p className="price">${price}</p>
-                              <Link className='btn' to={`detail/${id}`}>
+                              <Link className='btn' to={`/detail/${id}`}>
                                 Description
                               </Link>
                             </div>
