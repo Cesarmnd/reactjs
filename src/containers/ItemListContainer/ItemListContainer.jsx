@@ -5,13 +5,10 @@ import { useState, useEffect } from 'react';
 import ItemList from '../../components/ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 
-
-
 const ItemListContainer = () => {
   const [prods, setProds] = useState([])
   const [loading, setLoading] = useState(true)
   const { categoryId } = useParams()
-
 
   useEffect(()=>{
     if ( categoryId != undefined ) {
@@ -30,7 +27,6 @@ const ItemListContainer = () => {
       .finally(()=> setLoading(false)),500)
     }    
   },[categoryId])
-
 
   return (
     <div>

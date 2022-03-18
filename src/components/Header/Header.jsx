@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 
 const Header = () => {
  
-
+// Dibujado de logo y secciones de navbar
   return (
     <header className='header'> 
       <nav className='header__nav'>
@@ -45,7 +45,6 @@ const Header = () => {
         </NavLink>
       </nav>
     </header>
-  )
-}
+  )}
 
 export default Header

@@ -2,22 +2,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 75%;
-  margin: 50px auto;
+  width: 90%;
+  margin: 25px auto;
   padding: 25px;
-  border: 2px solid #000;
-  border-radius: 20px;
-  box-shadow: 1px 1px 10px black;
 }
 
 .imgDetail { 
-  width: 300px;
+  width: 450px;
+  margin: 10px;
 }
 
 .bodyDetail {
   padding: 20px;
-  width: 60%;
-  text-align: center;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .nameDetail {
@@ -27,7 +27,7 @@
 
 .btns-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -39,4 +39,9 @@
 
 .descriptionDetail { 
   text-align: left;
+}
+
+.btn {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
 }
