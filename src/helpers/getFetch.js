@@ -1,6 +1,7 @@
 export const items = [
   {
     "id": '0',
+    "stock": 25,
     "name": "Logitech G815 Black",
     "price": 375,
     "category":"keyboard",
@@ -9,6 +10,7 @@ export const items = [
   },
   {
     "id": '1',
+    "stock": 20,
     "name": "HyperX Alloy Origins Core",
     "price": 285,
     "category":"keyboard",
@@ -17,6 +19,7 @@ export const items = [
   },
   {
     "id": '2',
+    "stock": 15,
     "name": "Corsair K68 RGB",
     "price": 355,
     "category":"keyboard",
@@ -25,6 +28,7 @@ export const items = [
   },
   {
     "id": '3',
+    "stock": 12,
     "name": "HP GK400F",
     "price": 462,
     "category":"keyboard",
@@ -33,6 +37,7 @@ export const items = [
   },
   {
     "id": '4',
+    "stock": 29,
     "name": "HiperX Pulsefire Surge",
     "price": 105,
     "category":"mice",
@@ -41,6 +46,7 @@ export const items = [
   },
   {
     "id": '5',
+    "stock": 10,
     "name": "Corsair Glaive RGB",
     "price": 72,
     "category":"mice",
@@ -49,6 +55,7 @@ export const items = [
   },
   {
     "id": '6',
+    "stock": 3,
     "name": "MSI Clutch GM20 Elite",
     "price": 85,
     "category":"mice",
@@ -57,6 +64,7 @@ export const items = [
   },
   {
     "id": '7',
+    "stock": 66,
     "name": "Logitech G502",
     "price": 82,
     "category":"mice",
@@ -65,6 +73,7 @@ export const items = [
   },  
   {
     "id": '8',
+    "stock": 90,
     "name": "HiperX Cloud Flight",
     "price": 185,
     "category":"headsets",
@@ -73,6 +82,7 @@ export const items = [
   },
   {
     "id": '9',
+    "stock": 18,
     "name": "Corsair HS50 Pro",
     "price": 125,
     "category":"headsets",
@@ -81,6 +91,7 @@ export const items = [
   },
   {
     "id": '10',
+    "stock": 5,
     "name": "MSI Immersive GH30",
     "price": 105,
     "category":"headsets",
@@ -89,6 +100,7 @@ export const items = [
   },
   {
     "id": '11',
+    "stock": 52,
     "name": "Logitech G533",
     "price": 285,
     "category":"headsets",
@@ -97,6 +109,7 @@ export const items = [
   },
   {
     "id": '12',
+    "stock": 13,
     "name": "HyperX Fury S Pro",
     "price": 35,
     "category":"mousepads",
@@ -105,6 +118,7 @@ export const items = [
   },
   {
     "id": '13',
+    "stock": 16,
     "name": "Corsair Mm200 Cloth",
     "price": 73,
     "category":"mousepads",
@@ -113,6 +127,7 @@ export const items = [
   },
   {
     "id": '14',
+    "stock": 7,
     "name": "Logitech G840 XL",
     "price": 45,
     "category":"mousepads",

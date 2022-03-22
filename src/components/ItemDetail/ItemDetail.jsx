@@ -1,31 +1,36 @@
 import './itemDetail.css'
-import React from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
 import { useState } from 'react'
+import { useCartContext } from '../../context/CartContext'
+import ReturnBtn from '../ReturnBtn/ReturnBtn'
 
-function ItemDetail ({id, img, name, price, description}) {
+function ItemDetail ({item}) {
+  // Inclusión de la función addCArt 
+  const { addCart, cartList } = useCartContext()
+
+  // Cambio de botón y agregado de items al cart
   const [counter, setCounter] = useState(0)
 
-  const onAdd = ()=> { 
-    setCounter(1)
+  const onAdd = cant=> { 
+    setCounter(cant)
+    addCart({...item, ammount: cant})
   }
+
 
   // Dibujado de detalle de producto
   return (
-    <div className="cardDetail" key={id}>
-                            <img src={img} className="imgDetail"/>
+    <div className="cardDetail" key={item.id}>
+                            <img src={item.img} className="imgDetail"/>
                             <div className="bodyDetail">
-                              <h5 className="nameDetail">{name}</h5>
-                              <p className="descriptionDetail">{description}</p>
+                              <h5 className="nameDetail">{item.name}</h5>
+                              <p className="descriptionDetail">{item.description}</p>
                               <div className='btns-container'>
-                                <p className="priceDetail">${price}</p>
+                                <p className="priceDetail">${item.price}</p>
                                 {/* Contador */}
-                                <ItemCount limit = {20} initial = {0} onAdd={onAdd} counter={counter} />
+                                <ItemCount initial = {0} onAdd={onAdd} counter={counter} stock={item.stock} />
                                 {/* Botón de regreso */}
-                                <Link className="btn" to='/'>
-                                  Back
-                                </Link>
+                                <ReturnBtn />
                               </div>
                             </div>
     </div>

@@ -3,19 +3,19 @@ import React from 'react'
 import { useState } from 'react'
 import InterBtn from '../InterBtn/InterBtn';
 
-function ItemCount( {initial, limit, onAdd, counter} ) {
+function ItemCount( {initial, onAdd, counter, stock} ) {
   const [ count, setCount ] = useState(initial);
 
-// Aumentar la cantidad
+  // Aumentar la cantidad
   const incCount = () => { 
-    if (count <  limit ) {
+    if (count <  stock ) {
       setCount( count + 1 )
     } else {
       setCount(count) 
     }
   }
 
-// Disminuir la cantidad
+  // Disminuir la cantidad
   const decCount = () => {
     if (count > 0) {
       setCount(count - 1)
@@ -23,6 +23,11 @@ function ItemCount( {initial, limit, onAdd, counter} ) {
       setCount(count)
     }
   }
+
+  // Agregado de cantidad al item
+  const add = () => {
+    onAdd(count)
+  } 
 
   // Dibujado del contador
   return (
@@ -33,7 +38,7 @@ function ItemCount( {initial, limit, onAdd, counter} ) {
         <button className='btn-cart' onClick={ incCount }>+</button>
       </div>
       {/* Dibujado del botón intercambiable */}
-      <InterBtn onAdd={onAdd} counter={counter} number={count} />
+      <InterBtn onAdd={add} counter={counter} number={count} />
     </div>
   )
 }

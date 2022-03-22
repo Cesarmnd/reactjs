@@ -25,7 +25,7 @@ const ItemDetailContainer = () => {
         {
         loading ? <h1 className='loading'>Loading...</h1>
         :
-        <ItemDetail {...item}/>
+        <ItemDetail item={item}/>
         }
       </div>
 
