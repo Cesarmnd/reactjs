@@ -1,5 +1,4 @@
 import './itemDetail.css'
-import { Link } from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
 import { useState } from 'react'
 import { useCartContext } from '../../context/CartContext'
@@ -7,7 +6,7 @@ import ReturnBtn from '../ReturnBtn/ReturnBtn'
 
 function ItemDetail ({item}) {
   // Inclusión de la función addCArt 
-  const { addCart, cartList } = useCartContext()
+  const { addCart} = useCartContext()
 
   // Cambio de botón y agregado de items al cart
   const [counter, setCounter] = useState(0)

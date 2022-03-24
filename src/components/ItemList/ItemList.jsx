@@ -1,14 +1,16 @@
 import './itemList.css'
 import React from 'react' 
 import Item from '../Item/Item'
+import { memo } from 'react'
 
-function ItemList({items}) {
+
+const ItemList =  memo(({items}) => {
   // Dibujado de productos de la tienda
   return (
     <div className='card-container'>
         {items.map(item => <Item {...item} key={item.id}/>)}
     </div>
   )
-}
+})
 
 export default ItemList

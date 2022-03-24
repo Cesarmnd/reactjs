@@ -4,7 +4,18 @@ import './cart.css';
 
 function Cart() {
   // Importación del context
-  const {cartList, emptyCart} = useCartContext()
+  const {cartList, emptyCart, deleteItem, totales} = useCartContext()
+
+  if (cartList.length === 0) {
+    return (
+      <div>
+        <h2>You doesn't have any item yet! :(</h2>
+        <Link className='btn' to='/'>
+          Go back to store
+        </Link>
+      </div>
+    )
+  }
 
   return (
     <div className='cart-main'>
@@ -19,18 +30,19 @@ function Cart() {
                                   <img className='cart-main__img' src={item.img} />
                                   <p className='cart-main__item-name'> {item.name} </p>
                                 </div>
-                                <p className='cart-main__item-price'> ${item.price} </p>
+                                <p className='cart-main__item-price'> ${(item.price * item.ammount)} </p>
                                 <div className='cart-main__item-quantity'>
                                   <button className='btn-cart'>-</button>
                                   <p className='label'> {item.ammount} </p>
                                   <button className='btn-cart'>+</button>
                                 </div>
                                 <div className='cart-main__item-remove'>
-                                  <button className='btn-cart'>X</button>
+                                  <button className='btn-cart' onClick={deleteItem} id={item.id}>X</button>
                                 </div>
                             </div>) }
       <div className='cart-main__btns'>
       <button className='btn' onClick={emptyCart}>Empty Cart</button>
+      <p>Total: ${totales}</p>
       <Link className='btn' to='/'>
         Continue Shopping
       </Link>
@@ -40,3 +52,4 @@ function Cart() {
 }
 
 export default Cart
+
