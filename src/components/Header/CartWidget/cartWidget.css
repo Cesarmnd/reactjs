@@ -5,10 +5,11 @@
   width: 100%;
   margin: 0;
   border-radius: 20px;
+  position: relative;
 }
 
 .cart-container:hover {
-  background-color: #04633d;
+
   cursor: pointer;
 }
 
@@ -22,4 +23,11 @@
   color: #fafafa;
   font-weight: bolder;
   margin: 8px 0;
+}
+
+.items-number {
+  color: #fafafa;
+  margin: 15px;
+  position: absolute;
+  left: -20px;
 }

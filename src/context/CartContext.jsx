@@ -11,21 +11,26 @@ function CartContextProvider ({children}) {
 
   const [ cartList, setCartList ] = useState([])
 
+  // Creación de re-renderizado forzado
+  const [ reRender, setReRender] = useState(0)
+
   // Función para añadir items al carrito
   const addCart = (item) => {
     if (!cartList.some(o => o.id === item.id)) {
       setCartList([ ...cartList, item ])
     } else {
-      cartList[item.id].ammount = cartList[item.id].ammount + item.ammount
+      item.ammount = item.ammount + item.ammount
+      setReRender(reRender+1)
     }
-    
   } 
+
   
-  console.log(cartList)
   //  Vaciar carrito
-  const emptyCart = ()=> [
-      setCartList([])
-  ]
+  const emptyCart = ()=> {
+    setCartList([])
+    setReRender(0)
+  }
+  
 
   // Eliminar item del carrito
   const deleteItem = (e) => {
@@ -47,33 +52,25 @@ function CartContextProvider ({children}) {
     return total + num
   }
   
-  // Número de items en el carrito
-
-  const quantities = cartList.map(getQuantity)
-
-  function getQuantity (obj) {
-    return (obj.ammount)
-  }
-
-  const totalQuantity = quantities.reduce(grandTotal, 0) 
-  
-  function grandTotal (tot, numb){
-    return tot + numb
-  }
-
 
   // Función de dibujado de cantidad
   function ItemNumbers () {
+    const quantities = cartList.map((obj) => {
+      return (obj.ammount)
+    })
+
+    const totalQuantity = quantities.reduce( (tot, numb) => {
+      return tot + numb
+    }, 0) 
       
     const config = (totalQuantity === 0)
       ?
         {
-          className: `btn`,
           style: {display: 'none'},
         }
       : 
         {
-          className: `btn`,
+          className: `items-number`,
           style: {color: 'inline-block'},
         }
 

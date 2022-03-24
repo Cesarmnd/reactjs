@@ -8,8 +8,8 @@ function Cart() {
 
   if (cartList.length === 0) {
     return (
-      <div>
-        <h2>You doesn't have any item yet! :(</h2>
+      <div className='empty-container'>
+        <h2 className='empty-title'>You doesn't have any item yet! :(</h2>
         <Link className='btn' to='/'>
           Go back to store
         </Link>
@@ -42,7 +42,7 @@ function Cart() {
                             </div>) }
       <div className='cart-main__btns'>
       <button className='btn' onClick={emptyCart}>Empty Cart</button>
-      <p>Total: ${totales}</p>
+      <p >Total: ${totales}</p>
       <Link className='btn' to='/'>
         Continue Shopping
       </Link>
