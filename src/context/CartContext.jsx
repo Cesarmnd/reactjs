@@ -17,12 +17,12 @@ function CartContextProvider ({children}) {
   // Función para añadir items al carrito
   const addCart = (item) => {
     const foundItem = cartList.find(obj => obj.id == item.id)
+    const itemIndex = cartList.findIndex(obj => obj.id === item.id)
  
     if (foundItem === undefined) {
       setCartList([ ...cartList, item ])
     } else {
-      cartList[item.id].ammount = cartList[item.id].ammount + item.ammount
-      console.log()
+      cartList[itemIndex].ammount = cartList[itemIndex].ammount + item.ammount
       setReRender(reRender+1)
     }
   } 
