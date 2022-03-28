@@ -1,9 +1,11 @@
 import './ItemListContainer.css';
 import React from 'react'
-import { getFetch } from '../../helpers/getFetch';
+import { getFetch, items } from '../../helpers/getFetch';
 import { useState, useEffect } from 'react';
 import ItemList from '../../components/ItemList/ItemList';
 import { useParams } from 'react-router-dom';
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
+
 
 const ItemListContainer = () => {
   const [prods, setProds] = useState([])
@@ -11,22 +13,25 @@ const ItemListContainer = () => {
   const { categoryId } = useParams()
 
   useEffect(()=>{
+    const db = getFirestore()
+    const queryCollection = collection(db, 'items')
     if ( categoryId != undefined ) {
-      setTimeout(() => getFetch 
-      .then((data)=> setProds(data.filter(val => val.category === categoryId)), 
-                      (err)=>console.log(err))
-    
+      const queryFilter = query(queryCollection, where('category', '==', categoryId))
+      setTimeout(() => 
+      getDocs(queryFilter)
+      .then(resp => setProds( resp.docs.map(obj => ( { id: obj.id, ...obj.data() } )) ))
       .catch(err =>console.log(err))
       .finally(()=> setLoading(false)),500)
     }else {
-      setTimeout(() => getFetch 
-      .then((data)=> setProds(data), 
-                      (err)=>console.log(err))
-    
+      setTimeout(() => 
+      getDocs(queryCollection)
+      .then(resp => setProds( resp.docs.map(obj => ( { id: obj.id, ...obj.data() } )) ))
       .catch(err =>console.log(err))
       .finally(()=> setLoading(false)),500)
     }    
   },[categoryId])
+
+  console.log(prods)
 
   return (
     <div>
