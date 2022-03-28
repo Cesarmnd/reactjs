@@ -31,8 +31,6 @@ const ItemListContainer = () => {
     }    
   },[categoryId])
 
-  console.log(prods)
-
   return (
     <div>
       <div>
