@@ -1,6 +1,5 @@
 import './ItemListContainer.css';
 import React from 'react'
-import { getFetch, items } from '../../helpers/getFetch';
 import { useState, useEffect } from 'react';
 import ItemList from '../../components/ItemList/ItemList';
 import { useParams } from 'react-router-dom';
@@ -17,17 +16,15 @@ const ItemListContainer = () => {
     const queryCollection = collection(db, 'items')
     if ( categoryId != undefined ) {
       const queryFilter = query(queryCollection, where('category', '==', categoryId))
-      setTimeout(() => 
       getDocs(queryFilter)
       .then(resp => setProds( resp.docs.map(obj => ( { id: obj.id, ...obj.data() } )) ))
       .catch(err =>console.log(err))
-      .finally(()=> setLoading(false)),500)
+      .finally(()=> setLoading(false))
     }else {
-      setTimeout(() => 
       getDocs(queryCollection)
       .then(resp => setProds( resp.docs.map(obj => ( { id: obj.id, ...obj.data() } )) ))
       .catch(err =>console.log(err))
-      .finally(()=> setLoading(false)),500)
+      .finally(()=> setLoading(false))
     }    
   },[categoryId])
 
