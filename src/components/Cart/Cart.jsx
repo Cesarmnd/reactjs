@@ -5,20 +5,6 @@ import './cart.css';
 function Cart() {
   // Importación del context
   const {cartList, emptyCart, deleteItem, totales} = useCartContext()
-  const checkout = () =>{
-    const list = {
-      buyer: {
-        name: 'Cesar',
-        phone: 984371650,
-        email: 'cesarn.davila@gmail.com'
-      },
-      items: cartList.map(obj => ({ id: obj.id, 
-                                    name: obj.name, 
-                                    price: obj.price })),
-      total: totales 
-    }
-    console.log(list)
-  }
 
   if (cartList.length === 0) {
     return (
@@ -56,7 +42,9 @@ function Cart() {
                             </div>) }
       <div className='cart-main__btns'>
       <button className='btn' onClick={emptyCart}>Empty Cart</button>
-      <button className="btn" onClick={checkout}>Checkout</button>
+      <Link className='btn' to='/checkout'>
+        Checkout
+      </Link>
       <p >Total: ${totales}</p>
       <Link className='btn' to='/'>
         Continue Shopping
