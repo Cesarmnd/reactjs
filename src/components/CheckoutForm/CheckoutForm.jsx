@@ -4,7 +4,7 @@ import { useCartContext } from '../../context/CartContext';
 import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from 'firebase/firestore'
 
 
-function CheckoutForm() {
+const CheckoutForm = () => {
   const {cartList, totales, emptyCart} = useCartContext()
   const [dataForm, setDataForm] = useState({name: '', email: '', number: ''})
 
@@ -38,15 +38,15 @@ function CheckoutForm() {
       alert('Your cart is empty')
 
     } else {
-
+      
       const queryCollectionSet = collection(db, 'orders')
       addDoc(queryCollectionSet, list)
       .then(function(docRef) {
         alert(`Thanks for buying in our store! Your id transaction is: "${docRef.id}". We're going to send you an email with more information.`, );
-        emptyCart();
-        setDataForm({name: '', email: '', number: ''} )
         })
       .catch(err => console.log(err))
+      emptyCart();
+      setDataForm({name: '', email: '', number: ''} )
 
     }
  
