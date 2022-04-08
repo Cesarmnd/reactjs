@@ -5,8 +5,7 @@ import { addDoc, collection, documentId, getDocs, getFirestore, query, where, wr
 
 
 function CheckoutForm() {
-  const {cartList, totales} = useCartContext()
-
+  const {cartList, totales, emptyCart} = useCartContext()
   const [dataForm, setDataForm] = useState({name: '', email: '', number: ''})
 
   
@@ -19,21 +18,38 @@ function CheckoutForm() {
     const list = {
       buyer: dataForm,
       items: cartList.map(obj => ({ id: obj.id, 
+                                    date: Date(),
                                     name: obj.name, 
                                     price: obj.price })),
       total: totales 
     }
-
     const db = getFirestore()
-    const queryCollectionSet = collection(db, 'orders')
-    addDoc(queryCollectionSet, list)
-    
-    .then(function(docRef) {
-      alert(`Thanks for buying in our store! Your id transaction is: "${docRef.id}". We're going to send you an email with more information.`, );
-      })
-    .catch(err => console.log(err))
-    
 
+    if (dataForm.name === '' || dataForm.email === '' || dataForm.number === '') {
+
+      alert('Please, fill out all the capms')
+
+    } else if (!dataForm.email.includes('@')) {
+
+      alert('Enter a valid email!') 
+
+    } else if (cartList[0] === undefined) {
+
+      alert('Your cart is empty')
+
+    } else {
+
+      const queryCollectionSet = collection(db, 'orders')
+      addDoc(queryCollectionSet, list)
+      .then(function(docRef) {
+        alert(`Thanks for buying in our store! Your id transaction is: "${docRef.id}". We're going to send you an email with more information.`, );
+        emptyCart();
+        setDataForm({name: '', email: '', number: ''} )
+        })
+      .catch(err => console.log(err))
+
+    }
+ 
     const queryCollection = collection(db, 'items')
     const queryUpdateStock = await query(
       queryCollection, where ( documentId(), 'in', cartList.map(obj => obj.id))
@@ -47,16 +63,17 @@ function CheckoutForm() {
     })))
     batch.commit()
   }
+  
 
   return (
     <div className='form'>
       <h1 className='form__title'>Checkout Form</h1>
       <p className='form__description'>Please fill out all the camps with your information:</p>
-      <form className='form__container'>
+      <form className='form__container' id='form'>
         <label htmlFor="name">Name:</label><input type="text" name='name'  id="name"  value={dataForm.name} onChange={handleOnChange} required/>
         <label htmlFor="email">Email:</label><input type="email" name='email'  id="email"  value={dataForm.email} onChange={handleOnChange} required/>
         <label htmlFor="number">Phone number:</label><input type="number" name='number'  id="number"  value={dataForm.number} onChange={handleOnChange} required/>
-        <button className="btn btn-form" onClick={checkout}>Checkout</button>
+        <input type="submit" className="btn btn-form" onClick={checkout} value="Checkout" />    
       </form>
     </div>
   )
