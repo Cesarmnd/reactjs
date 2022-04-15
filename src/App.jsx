@@ -1,11 +1,14 @@
+// Libraries 
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
-import './App.css';
-import Cart from './components/Cart/Cart';
+//Components
 import CheckoutForm from './components/CheckoutForm/CheckoutForm';
 import Header from './components/Header/Header';
 import ItemDetailContainer from './containers/ItemDetailContainer/ItemDetailContainer';
 import ItemListContainer from './containers/ItemListContainer/ItemListContainer';
 import CartContextProvider from './context/CartContext';
+//Style
+import './App.css';
+import CartContainer from './containers/CartContainer/CartContainer';
 
 function App() {
 
@@ -22,7 +25,7 @@ function App() {
             {/* Detalle de producto */}
             <Route path="/detail/:detailId" element={ <ItemDetailContainer /> } />    
             {/* Carrito */}
-            <Route path="/cart" element={ <Cart /> } />  
+            <Route path="/cart" element={ <CartContainer /> } />  
             <Route path="/checkout" element={ <CheckoutForm /> } /> 
 
             {/* Redirección a página de inicio */}

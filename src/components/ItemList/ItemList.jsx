@@ -1,7 +1,9 @@
-import './itemList.css'
-import React from 'react' 
-import Item from '../Item/Item'
+// Libraries
 import { memo } from 'react'
+// Components
+import Item from '../Item/Item'
+//Style
+import './itemList.css'
 
 
 const ItemList =  memo(({items}) => {

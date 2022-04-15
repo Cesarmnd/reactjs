@@ -1,28 +1,31 @@
+// Libraries
 import { useState} from 'react';
-import './checkout.css';
 import { useCartContext } from '../../context/CartContext';
 import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from 'firebase/firestore'
+// Style
+import './checkout.css';
 
 
 const CheckoutForm = () => {
-  const {cartList, totales, emptyCart} = useCartContext()
+  const {cartList, totals, emptyCart} = useCartContext()
   const [dataForm, setDataForm] = useState({name: '', email: '', number: ''})
 
-  
   const handleOnChange = (e) => { 
     setDataForm( { ...dataForm, [e.target.name]: e.target.value})
   }
 
-  const checkout = async () =>{
+  const checkout = async (e) =>{
+    e.preventDefault()
 
     const list = {
       buyer: dataForm,
+      date: Date(),
       items: cartList.map(obj => ({ id: obj.id, 
-                                    date: Date(),
                                     name: obj.name, 
                                     price: obj.price })),
-      total: totales 
+      total: totals 
     }
+
     const db = getFirestore()
 
     if (dataForm.name === '' || dataForm.email === '' || dataForm.number === '') {
@@ -45,9 +48,10 @@ const CheckoutForm = () => {
         alert(`Thanks for buying in our store! Your id transaction is: "${docRef.id}". We're going to send you an email with more information.`, );
         })
       .catch(err => console.log(err))
-      emptyCart();
-      setDataForm({name: '', email: '', number: ''} )
-
+      .finally( () => {
+        emptyCart();
+        setDataForm({name: '', email: '', number: ''} )
+      })
     }
  
     const queryCollection = collection(db, 'items')
@@ -72,6 +76,7 @@ const CheckoutForm = () => {
       <form className='form__container' id='form'>
         <label htmlFor="name">Name:</label><input type="text" name='name'  id="name"  value={dataForm.name} onChange={handleOnChange} required/>
         <label htmlFor="email">Email:</label><input type="email" name='email'  id="email"  value={dataForm.email} onChange={handleOnChange} required/>
+        <label htmlFor="email">Confirm email:</label><input type="email" name='email'  id="email"  value={dataForm.email} onChange={handleOnChange} required/>
         <label htmlFor="number">Phone number:</label><input type="number" name='number'  id="number"  value={dataForm.number} onChange={handleOnChange} required/>
         <input type="submit" className="btn btn-form" onClick={checkout} value="Checkout" />    
       </form>

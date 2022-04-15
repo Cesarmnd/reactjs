@@ -1,8 +1,9 @@
+// Libraries
 import { Link } from "react-router-dom";
 
 // Creación de botón de Añadir
-const AddBtn= ( {change, number} )=> {
-  return <button className="btn" onClick={change} disabled={ number === 0 }>Add to cart</button>
+const AddBtn= ( { change, number } )=> {
+  return <button className="btn" onClick={ change } disabled={ number === 0 }>Add to cart</button>
 }
 
 // Creación de botón para ir al carrito
@@ -16,12 +17,12 @@ const CartBtn= ()=> {
 }
 
 // Función de intercambio 
-function InterBtn({onAdd, counter, number}) {
+function InterBtn({ onAdd, counter, number }) {
 
   return (
     <div>         
         {counter === 0 ? 
-          <AddBtn change={onAdd} number={number} />
+          <AddBtn change={ onAdd } number={ number } />
           : 
           <CartBtn />}
     </div>

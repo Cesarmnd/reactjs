@@ -1,9 +1,11 @@
-import './ItemListContainer.css';
-import React from 'react'
+// Libraries
 import { useState, useEffect } from 'react';
-import ItemList from '../../components/ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
+// Componets
+import ItemList from '../../components/ItemList/ItemList';
+// Style
+import './ItemListContainer.css';
 
 
 const ItemListContainer = () => {
@@ -14,18 +16,16 @@ const ItemListContainer = () => {
   useEffect(()=>{
     const db = getFirestore()
     const queryCollection = collection(db, 'items')
-    if ( categoryId != undefined ) {
-      const queryFilter = query(queryCollection, where('category', '==', categoryId))
+    const queryFilter = categoryId ? 
+                        query(queryCollection, where('category', '==', categoryId))
+                        : 
+                        queryCollection
+      
       getDocs(queryFilter)
       .then(resp => setProds( resp.docs.map(obj => ( { id: obj.id, ...obj.data() } )) ))
       .catch(err =>console.log(err))
       .finally(()=> setLoading(false))
-    }else {
-      getDocs(queryCollection)
-      .then(resp => setProds( resp.docs.map(obj => ( { id: obj.id, ...obj.data() } )) ))
-      .catch(err =>console.log(err))
-      .finally(()=> setLoading(false))
-    }    
+
   },[categoryId])
 
   return (

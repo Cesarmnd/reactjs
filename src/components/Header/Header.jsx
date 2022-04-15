@@ -1,8 +1,10 @@
-import './header.css'
-import imgLogo from '../../images/logo.png'
-import React from 'react'
-import CartWidget from './CartWidget/CartWidget'
+// Libraries
 import { NavLink } from 'react-router-dom'
+// Components
+import CartWidget from './CartWidget/CartWidget'
+import imgLogo from '../../images/logo.png'
+//Style
+import './header.css'
 
 const Header = () => {
  

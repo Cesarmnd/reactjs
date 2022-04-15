@@ -1,8 +1,9 @@
-import React from 'react'
+// Libraries
 import { useState, useEffect } from 'react';
-import ItemDetail from '../../components/ItemDetail/ItemDetail';
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom' 
 import { doc, getDoc, getFirestore } from "firebase/firestore";
+// Components
+import ItemDetail from '../../components/ItemDetail/ItemDetail';
 
 const ItemDetailContainer = () => {
   const { detailId } = useParams ()

@@ -1,7 +1,9 @@
-import './ItemCount.css'
-import React from 'react'
+// Libraries
 import { useState } from 'react'
+// Component
 import InterBtn from '../InterBtn/InterBtn';
+//Style
+import './ItemCount.css'
 
 function ItemCount( {initial, onAdd, counter, stock} ) {
   const [ count, setCount ] = useState(initial);
@@ -38,7 +40,7 @@ function ItemCount( {initial, onAdd, counter, stock} ) {
         <button className='btn-cart' onClick={ incCount }>+</button>
       </div>
       {/* Dibujado del botón intercambiable */}
-      <InterBtn onAdd={add} counter={counter} number={count} />
+      <InterBtn onAdd={ add } counter={ counter } number={ count } />
     </div>
   )
 }
