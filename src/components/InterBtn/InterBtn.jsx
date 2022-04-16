@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 // Creación de botón de Añadir
 const AddBtn= ( { change, number } )=> {
-  return <button className="btn" onClick={ change } disabled={ number === 0 }>Add to cart</button>
+  return <button className={number != 0 ? 'btn' : 'btn-disabled'} onClick={ change } disabled={ number === 0 }>Add to cart</button>
 }
 
 // Creación de botón para ir al carrito

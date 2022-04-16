@@ -8,7 +8,7 @@ import './checkout.css';
 
 const CheckoutForm = () => {
   const {cartList, totals, emptyCart} = useCartContext()
-  const [dataForm, setDataForm] = useState({name: '', email: '', number: ''})
+  const [dataForm, setDataForm] = useState({name: '', email: '', emailComfirm: '', number: ''})
 
   const handleOnChange = (e) => { 
     setDataForm( { ...dataForm, [e.target.name]: e.target.value})
@@ -28,13 +28,17 @@ const CheckoutForm = () => {
 
     const db = getFirestore()
 
-    if (dataForm.name === '' || dataForm.email === '' || dataForm.number === '') {
+    if (dataForm.name === '' || dataForm.email === '' || dataForm.number === '' || dataForm.emailComfirm === '') {
 
       alert('Please, fill out all the capms')
 
-    } else if (!dataForm.email.includes('@')) {
+    } else if ( !dataForm.email.includes('@') ) {
 
       alert('Enter a valid email!') 
+
+    } else if ( dataForm.email != dataForm.emailComfirm ) {
+
+      alert('Email confirmation and email must be the same')
 
     } else if (cartList[0] === undefined) {
 
@@ -50,7 +54,7 @@ const CheckoutForm = () => {
       .catch(err => console.log(err))
       .finally( () => {
         emptyCart();
-        setDataForm({name: '', email: '', number: ''} )
+        setDataForm( {name: '', email: '', emailComfirm: '', number: ''} )
       })
     }
  
@@ -76,7 +80,7 @@ const CheckoutForm = () => {
       <form className='form__container' id='form'>
         <label htmlFor="name">Name:</label><input type="text" name='name'  id="name"  value={dataForm.name} onChange={handleOnChange} required/>
         <label htmlFor="email">Email:</label><input type="email" name='email'  id="email"  value={dataForm.email} onChange={handleOnChange} required/>
-        <label htmlFor="email">Confirm email:</label><input type="email" name='email'  id="email"  value={dataForm.email} onChange={handleOnChange} required/>
+        <label htmlFor="email">Confirm email:</label><input type="email" name='emailComfirm'  id="email"  value={dataForm.emailComfirm} onChange={handleOnChange} required/>
         <label htmlFor="number">Phone number:</label><input type="number" name='number'  id="number"  value={dataForm.number} onChange={handleOnChange} required/>
         <input type="submit" className="btn btn-form" onClick={checkout} value="Checkout" />    
       </form>

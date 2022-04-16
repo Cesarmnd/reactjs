@@ -19,7 +19,7 @@ function CartCount({ item, number }) {
     if (cartList.find(obj => obj.id == e.target.getAttribute('tag')).ammount > 0) {
       cartList.find(obj => obj.id == e.target.getAttribute('tag')).ammount--
       forcedReRender()
-    }
+    } 
   }
   
   return(

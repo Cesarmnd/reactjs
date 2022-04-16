@@ -29,7 +29,7 @@ function ItemDetail ({ item }) {
                               <div className='btns-container'>
                                 <p className="priceDetail">${item.price}</p>
                                 {/* Contador */}
-                                <ItemCount initial = {0} onAdd={onAdd} counter={counter} stock={item.stock} />
+                                <ItemCount initial={0} onAdd={onAdd} counter={counter} stock={item.stock} />
                                 {/* Botón de regreso */}
                                 <ReturnBtn />
                               </div>

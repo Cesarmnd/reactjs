@@ -31,14 +31,24 @@
   
 }
 
-.btn {
+.btn,
+.btn-disabled {
   text-decoration: none;
+  margin: 10px;
   padding: 10px;
-  background-color: #008000;
   color: white;
   border-radius: 10px;
+  border: none;
+  font-size: 16px;
 }
 
+.btn {
+  background-color: #008000;
+}
+
+.btn-disabled {
+  background-color: #008800aa;
+}
 .btn:hover {
   cursor: pointer;
   background-color: #006400;
