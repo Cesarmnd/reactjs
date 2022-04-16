@@ -29,7 +29,7 @@ function CartItem() {
                                     <p className='cart-main__item-name'> {item.name} </p>
                                   </div>
                                   <p className='cart-main__item-price'> ${(item.price * item.ammount)} </p>
-                                  <CartCount item={ item.id } number={item.ammount}/>
+                                  <CartCount item={ item.id } number={ item.ammount } stock={ item.stock }/>
                                   <div className='cart-main__item-remove'>
                                     <button className='btn-cart' onClick={deleteItem} id={item.id}>X</button>
                                   </div>

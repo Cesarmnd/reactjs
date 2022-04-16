@@ -3,7 +3,7 @@ import { useCartContext } from '../../context/CartContext';
 // Style
 import './cart.css';
 
-function CartCount({ item, number }) {
+function CartCount({ item, number, stock }) {
   // Importación del context
   const { cartList, forcedReRender } = useCartContext()
 
@@ -12,11 +12,10 @@ function CartCount({ item, number }) {
       cartList.find(obj => obj.id == e.target.getAttribute('tag')).ammount++
       forcedReRender()
     }
-
   }
 
   const decAmmount = (e) => { 
-    if (cartList.find(obj => obj.id == e.target.getAttribute('tag')).ammount > 0) {
+    if (cartList.find(obj => obj.id == e.target.getAttribute('tag')).ammount > 1) {
       cartList.find(obj => obj.id == e.target.getAttribute('tag')).ammount--
       forcedReRender()
     } 
@@ -24,9 +23,9 @@ function CartCount({ item, number }) {
   
   return(
     <div className='cart-main__item-quantity'>
-      <button className='btn-cart' onClick={ decAmmount } tag={ item } >-</button>
+      <button className={number != 1 ? 'btn-cart' : 'btn-cart__disabled'} onClick={ decAmmount } tag={ item } >-</button>
       <p className='label'> { number } </p>
-      <button className='btn-cart' onClick={ incAmmount } tag={ item } >+</button>
+      <button className={number != stock ? 'btn-cart' : 'btn-cart__disabled'} onClick={ incAmmount } tag={ item } >+</button>
     </div>
   )
   
