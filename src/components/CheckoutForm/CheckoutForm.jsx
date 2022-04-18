@@ -2,8 +2,7 @@
 import { useState} from 'react';
 import { useCartContext } from '../../context/CartContext';
 import { addDoc, collection, documentId, getDocs, getFirestore, query, where, writeBatch } from 'firebase/firestore'
-// Style
-import './checkout.css';
+
 
 
 const CheckoutForm = () => {

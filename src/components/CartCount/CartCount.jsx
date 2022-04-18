@@ -1,7 +1,5 @@
 // Libraries
 import { useCartContext } from '../../context/CartContext';
-// Style
-import './cart.css';
 
 function CartCount({ item, number, stock }) {
   // Importación del context

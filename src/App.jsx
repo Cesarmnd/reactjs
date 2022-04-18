@@ -1,5 +1,7 @@
 // Libraries 
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 //Components
 import CheckoutForm from './components/CheckoutForm/CheckoutForm';
 import Header from './components/Header/Header';

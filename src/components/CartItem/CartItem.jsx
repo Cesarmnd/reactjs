@@ -39,7 +39,7 @@ function CartItem() {
         <Link className='btn' to='/checkout'>
           Checkout
         </Link>
-        <p >Total: ${totals}</p>
+        <p className='cart__total-checkout'>Total: ${totals}</p>
         <Link className='btn' to='/'>
           Continue Shopping
         </Link>

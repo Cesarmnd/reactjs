@@ -1,7 +1,5 @@
 // Libraries
 import { Link } from 'react-router-dom'
-// Style
-import './item.css'
 
 function Item({ id, img, name, price }) {
 

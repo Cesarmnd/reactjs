@@ -2,8 +2,6 @@
 import { memo } from 'react'
 // Components
 import Item from '../Item/Item'
-//Style
-import './itemList.css'
 
 
 const ItemList =  memo(({items}) => {

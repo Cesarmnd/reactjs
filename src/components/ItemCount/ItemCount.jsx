@@ -2,8 +2,6 @@
 import { useState } from 'react'
 // Component
 import InterBtn from '../InterBtn/InterBtn';
-//Style
-import './ItemCount.css'
 
 function ItemCount( {initial, onAdd, counter, stock} ) {
   const [ count, setCount ] = useState(initial);
