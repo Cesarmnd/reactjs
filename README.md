@@ -6,7 +6,7 @@ Este proyecto fue pensado para ser una página e-commerce de una tienda de artí
 # Funcionabilidad`
 Puedes interactuar con esta página desde el siguiente link: https://comforting-sawine-4fef3f.netlify.app/
 
-![image](https://github.com/Cesarmnd/reactjs/blob/main/src/media/Animation.gif)
+![image](https://github.com/Cesarmnd/reactjs/blob/main/src/media/Animation2.gif)
 
 # Dependencias o librerias utilizadas
 React-router-dom
